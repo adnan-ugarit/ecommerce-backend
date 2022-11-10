@@ -1,0 +1,41 @@
+global:
+  scrape_interval: 10s # How frequently to scrape targets by default
+
+scrape_configs:
+  - job_name: 'spring_micrometer'         # The job name is assigned to scraped metrics by default.
+    metrics_path: '/actuator/prometheus'  # The HTTP resource path on which to fetch metrics from targets.
+    scrape_interval: 5s                   # How frequently to scrape targets from this job.
+    static_configs:                       # A static_config allows specifying a list of targets and a common labels set for them.
+    - targets: ['HOST_IP:8080']
+      labels:
+        service: 'gateway'
+    - targets: ['HOST_IP:8181']
+      labels:
+        service: 'catalog'
+    - targets: ['HOST_IP:8282']
+      labels:
+        service: 'cart'
+    - targets: ['HOST_IP:8383']
+      labels:
+        service: 'order'
+    - targets: ['HOST_IP:8484']
+      labels:
+        service: 'user'
+    - targets: ['HOST_IP:8585']
+      labels:
+        service: 'auth'
+    - targets: ['HOST_IP:8686']
+      labels:
+        service: 'payment'
+    - targets: ['HOST_IP:8989']
+      labels:
+        service: 'bank'
+    - targets: ['HOST_IP:8761']
+      labels:
+        server: 'eureka-1'
+    - targets: ['HOST_IP:8762']
+      labels:
+        server: 'eureka-2'
+    - targets: ['HOST_IP:8763']
+      labels:
+        server: 'eureka-3'

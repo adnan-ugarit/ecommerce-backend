@@ -1,0 +1,25 @@
+zuul:
+  prefix: /api
+  ignoredServices: bank-service
+  sensitiveHeaders: Cookie,Set-Cookie
+  routes:
+    catalog:
+      path: /catalog-service/**
+      serviceId: catalog-service
+    cart:
+      path: /cart-servic/**
+      serviceId: cart-service
+      sensitiveHeaders: Authorization
+    order:
+      path: /order-service/**
+      serviceId: order-service
+    user:
+      path: /user-service/**
+      serviceId: user-service
+    auth:
+      path: /auth-service/**
+      serviceId: auth-service
+      #stripPrefix: false
+    payment:
+      path: /payment-service/**
+      serviceId: payment-service

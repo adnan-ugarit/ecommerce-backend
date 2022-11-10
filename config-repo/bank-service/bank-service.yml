@@ -1,0 +1,25 @@
+spring:
+  rabbitmq:
+    addresses: amqps://vwarpvht:kTYgYFu-jmuvwbB2IPON9QYnXCuTYL9G@hummingbird.rmq.cloudamqp.com/vwarpvht
+  cloud:
+    stream:
+      bindings:
+        orderChannel:
+          destination: order.checker
+          group: pending
+        resultChannel:
+          destination: order
+      rabbit:
+        bindings:
+          resultChannel:
+            producer:
+              exchangeType: topic
+              routingKeyExpression: '"results"'
+
+---
+spring:
+  profiles: docker
+  rabbitmq:
+    addresses: rabbitmq:5672
+    username: guest
+    password: guest

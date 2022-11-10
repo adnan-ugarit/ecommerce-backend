@@ -1,0 +1,212 @@
+version: "3.2"
+services:
+  rabbitmq:
+    image: 'rabbitmq:3.8.3-management'
+    container_name: rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  config-server:
+    container_name: config-server
+    build: ./config-server
+    ports:
+      - "8888:8888"
+
+  eureka-server-1:
+    container_name: eureka-server-1
+    build: ./eureka-server
+    ports:
+      - "8761:8761"
+    depends_on:
+      - config-server
+    entrypoint: /bin/sh
+    command: >
+      -c "
+      while ! (nc -z config-server 8888); do sleep 5; echo 'Waiting for config-server to start-up...'; done;
+      java -Dspring.profiles.active=docker,es1 -jar app.jar
+      "
+
+  eureka-server-2:
+    container_name: eureka-server-2
+    build: ./eureka-server
+    ports:
+      - "8762:8761"
+    depends_on:
+      - config-server
+    entrypoint: /bin/sh
+    command: >
+      -c "
+      while ! (nc -z config-server 8888); do sleep 5; echo 'Waiting for config-server to start-up...'; done;
+      java -Dspring.profiles.active=docker,es2 -jar app.jar
+      "
+
+  eureka-server-3:
+    container_name: eureka-server-3
+    build: ./eureka-server
+    ports:
+      - "8763:8761"
+    depends_on:
+      - config-server
+    entrypoint: /bin/sh
+    command: >
+      -c "
+      while ! (nc -z config-server 8888); do sleep 5; echo 'Waiting for config-server to start-up...'; done;
+      java -Dspring.profiles.active=docker,es3 -jar app.jar
+      "
+
+  user-service:
+    container_name: user-service
+    build: ./user-service
+    ports:
+      - "8484:8484"
+    depends_on:
+      - config-server
+    entrypoint: /bin/sh
+    command: >
+      -c "
+      while ! (nc -z config-server 8888); do sleep 5; echo 'Waiting for config-server to start-up...'; done;
+      java -Dspring.profiles.active=docker -jar app.jar
+      "
+
+  auth-service:
+    container_name: auth-service
+    build: ./auth-service
+    ports:
+      - "8585:8585"
+    depends_on:
+      - config-server
+    entrypoint: /bin/sh
+    command: >
+      -c "
+      while ! (nc -z config-server 8888); do sleep 5; echo 'Waiting for config-server to start-up...'; done;
+      java -Dspring.profiles.active=docker -jar app.jar
+      "
+
+  catalog-service:
+    container_name: catalog-service
+    build: ./catalog-service
+    ports:
+      - "8181:8181"
+    depends_on:
+      - config-server
+    entrypoint: /bin/sh
+    command: >
+      -c "
+      while ! (nc -z config-server 8888); do sleep 5; echo 'Waiting for config-server to start-up...'; done;
+      java -Dspring.profiles.active=docker -jar app.jar
+      "
+
+  cart-service:
+    container_name: cart-service
+    build: ./cart-service
+    ports:
+      - "8282:8282"
+    depends_on:
+      - config-server
+    entrypoint: /bin/sh
+    command: >
+      -c "
+      while ! (nc -z config-server 8888); do sleep 5; echo 'Waiting for config-server to start-up...'; done;
+      java -Dspring.profiles.active=docker -jar app.jar
+      "
+
+  order-service:
+    container_name: order-service
+    build: ./order-service
+    ports:
+      - "8383:8383"
+    depends_on:
+      - config-server
+      - rabbitmq
+    entrypoint: /bin/sh
+    command: >
+      -c "
+      while ! (nc -z config-server 8888); do sleep 5; echo 'Waiting for config-server to start-up...'; done;
+      java -Dspring.profiles.active=docker -jar app.jar
+      "
+
+  bank-service:
+    container_name: bank-service
+    build: ./bank-service
+    ports:
+      - "8989:8989"
+      - "27017:27017"
+    depends_on:
+      - config-server
+      - rabbitmq
+    entrypoint: /bin/sh
+    command: >
+      -c "
+      while ! (nc -z config-server 8888); do sleep 5; echo 'Waiting for config-server to start-up...'; done;
+      java -Dspring.profiles.active=docker -jar app.jar
+      "
+
+  payment-service:
+    container_name: payment-service
+    build: ./payment-service
+    ports:
+      - "8686:8686"
+    depends_on:
+      - config-server
+    entrypoint: /bin/sh
+    command: >
+      -c "
+      while ! (nc -z config-server 8888); do sleep 5; echo 'Waiting for config-server to start-up...'; done;
+      java -Dspring.profiles.active=docker -jar app.jar
+      "
+
+  api-gateway:
+    container_name: api-gateway
+    build: ./api-gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - config-server
+      - eureka-server-1
+    entrypoint: /bin/sh
+    command: >
+      -c "
+      while ! (nc -z config-server 8888); do sleep 5; echo 'Waiting for config-server to start-up...'; done;
+      java -Dspring.profiles.active=docker -jar app.jar
+      "
+
+  lifecycle-manager:
+    container_name: lifecycle-manager
+    build: ./lifecycle-manager
+    ports:
+      - "8787:8787"
+    depends_on:
+      - config-server
+      - eureka-server-1
+    entrypoint: /bin/sh
+    command: >
+      -c "
+      while ! (nc -z config-server 8888 && nc -z eureka-server-1 8761); do sleep 5; echo 'Waiting for config-server && eureka-server to start-up...'; done;
+      java -Dspring.profiles.active=docker -jar app.jar
+      "
+
+  prometheus-monitoring:
+    container_name: prometheus-monitoring
+    build: ./prometheus-monitoring
+    ports:
+      - "9090:9090"
+
+  zipkin-server:
+    container_name: zipkin-server
+    build: ./zipkin-server
+    ports:
+      - "9411:9411"
+
+  elk-stack:
+    container_name: elk-stack
+    build: ./elk-stack
+    environment:
+      - ES_CONNECT_RETRY=100
+    ports:
+      - "5601:5601"
+      - "9200:9200"
+      - "5044:5044"

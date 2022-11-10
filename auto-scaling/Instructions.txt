@@ -1,0 +1,3 @@
+This folder is used by the microservice (lifecycle-manager) for scaling.
+You need move this folder to the path of Desktop on deployment machine.
+You may need the following command: "sudo docker network create ecommerce-backend_default".

@@ -1,0 +1,36 @@
+[submodule "api-gateway"]
+	path = api-gateway
+	url = https://github.com/adnan33161/api-gateway
+[submodule "auth-service"]
+	path = auth-service
+	url = https://github.com/adnan33161/auth-service
+[submodule "bank-service"]
+	path = bank-service
+	url = https://github.com/adnan33161/bank-service
+[submodule "cart-service"]
+	path = cart-service
+	url = https://github.com/adnan33161/cart-service
+[submodule "catalog-service"]
+	path = catalog-service
+	url = https://github.com/adnan33161/catalog-service
+[submodule "config-repo"]
+	path = config-repo
+	url = https://github.com/adnan33161/config-repo
+[submodule "config-server"]
+	path = config-server
+	url = https://github.com/adnan33161/config-server
+[submodule "eureka-server"]
+	path = eureka-server
+	url = https://github.com/adnan33161/eureka-server
+[submodule "lifecycle-manager"]
+	path = lifecycle-manager
+	url = https://github.com/adnan33161/lifecycle-manager
+[submodule "order-service"]
+	path = order-service
+	url = https://github.com/adnan33161/order-service
+[submodule "payment-service"]
+	path = payment-service
+	url = https://github.com/adnan33161/payment-service
+[submodule "user-service"]
+	path = user-service
+	url = https://github.com/adnan33161/user-service

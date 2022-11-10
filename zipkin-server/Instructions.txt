@@ -1,0 +1,5 @@
+For running locally:
+Use the command: "java -jar zipkin-server-2.12.9-exec.jar" to run wep app on URL: http://localhost:9411/
+
+For running remotely:
+Use the link: https://caszipkinserver.herokuapp.com/zipkin/

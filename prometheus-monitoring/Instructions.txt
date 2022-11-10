@@ -1,0 +1,7 @@
+For monitoring locally:
+Change HOST_IP in prometheus.yml to IP address for localhost
+EX: 192.168.232.130
+
+For monitoring remotely:
+Edit targets property as shown in the following example
+EX: ['HOST_IP:8181'] -> ['adnan-catalog.herokuapp.com']

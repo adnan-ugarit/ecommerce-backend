@@ -1,0 +1,8 @@
+For running locally:
+Use the link: http://localhost:8080/hystrix then
+In order to monitor internal circuit breaker, Enter URI: http://localhost:8080/turbine.stream
+In order to monitor external circuit breaker, Enter URI: http://localhost:8080/actuator/hystrix.stream
+
+For running remotely:
+Use the link: https://hystrix-dashboard.herokuapp.com then
+Enter Single Hystrix App (ex: https://adnan-order.herokuapp.com/actuator/hystrix.stream) for the service you want to monitor it.

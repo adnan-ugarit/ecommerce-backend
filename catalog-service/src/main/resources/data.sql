@@ -1,0 +1,51 @@
+DELETE FROM products;
+DELETE FROM categories;
+
+insert into categories(id, name, description, image_url) VALUES
+(1, 'Electronics', 'This section contains collection of electronics devices.', 'https://m.media-amazon.com/images/I/71OQfTdEjQL.jpg'),
+(2, 'Smartphones', 'This section contains collection of smartphones.', 'https://images.unsplash.com/photo-1581993192008-63e896f4f744?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=894&q=80'),
+(3, 'Laptops', 'This section contains collection of laptops.', 'https://m.media-amazon.com/images/I/81cpLDD+SPL.jpg'),
+(4, 'Clocks', 'This section contains collection of clocks.', 'https://adnan-catalog.herokuapp.com/uploaded-images/categories/photo-1592067284261-cb1092d519ba.jpg'),
+(5, 'Cameras', 'This section contains collection of cameras.', 'https://m.media-amazon.com/images/I/71owuc65uYL.jpg'),
+(6, 'Bags', 'This section contains collection of bags.', 'https://images.unsplash.com/photo-1580853504384-9818fdea33ea'),
+(7, 'Clothes', 'This section contains collection of clothes.', 'https://images.unsplash.com/photo-1520006403909-838d6b92c22e'),
+(8, 'Shoes', 'This section contains collection of shoes.', 'https://images.unsplash.com/photo-1462927114214-6956d2fddd4e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHNob2VzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=70'),
+(9, 'Furniture', null, 'https://m.media-amazon.com/images/I/51CIsFIg0-L.jpg'),
+(10, 'Toys', 'This section contains collection of toys.', 'https://m.media-amazon.com/images/I/61QQhMAuwUL.jpg')
+;
+
+insert into products(id, name, description, image_url, price, in_stock, category_id) VALUES
+(1, 'Kids Headphones', 'Noot products K11 Foldable Stereo Tangle-Free 3.5mm Jack Wired Cord On-Ear Headset for Children/Teens/Boys/Girls/Smartphones.', 'https://m.media-amazon.com/images/I/715Sv8XftgL.jpg', 17.99, 1, 1),
+(2, 'Samsung Headphones', 'Samsung Active InEar Headphones for Universal/SmartPhones - Retail Packaging - Red, ship with 4 sets of interchangeable soft gel tips for a customized fit, contoured gels reduce unwanted noise and improve audio quality.', 'https://m.media-amazon.com/images/I/51YlHFmqjxL.jpg', 17.69, 1, 1),
+(3, 'ELEGOO Arduino Kit', 'UNO Project Super Starter Kit with Tutorial and UNO R3 Compatible with Arduino IDE, High quality kit with UNO R3.', 'https://m.media-amazon.com/images/I/81itBMd1hzL.jpg', 36.99, 1, 1),
+(4, 'Logitech M525 Wireless Mouse', 'Long 3 Year Battery Life, Ergonomic Shape for Right or Left Hand Use, Micro-Precision Scroll Wheel, and USB Unifying Receiver for Computers and Laptops, Black/Gray.', 'https://m.media-amazon.com/images/I/81y5gTbiI7L.jpg', 24.49, 1, 1),
+(5, 'NPET K10 Gaming Keyboard', 'USB Wired Floating Keyboard, Quiet Ergonomic Water-Resistant Mechanical Feeling Keyboard, Ultra-Slim Rainbow LED Backlit Keyboard for Desktop Computers and Laptops.', 'https://m.media-amazon.com/images/I/61w0BypBzrL.jpg', 21.99, 1, 1),
+(6, 'MAXOAK Laptop Power Bank', '185Wh/50000mAh(Max.130W) Portable Laptop Charger External Battery Pack for Laptop Smartphones Notebook Tablet, AC Adapter, 1 x DC cable, 14 x DC connector for Laptops, 1 x Multifunction bag, 1 x Manual.', 'https://m.media-amazon.com/images/I/81mI9dvL8dL.jpg', 22.16, 1, 1),
+(7, 'SAMSUNG Galaxy S21', 'Ultra 5G Factory Unlocked Android Cell Phone 256GB US Version Smartphone Pro-Grade Camera 8K Video 108MP High Res, Phantom Black, Capture your life’s best moments in head-turning, super-smooth, cinema quality 8K Video.', 'https://m.media-amazon.com/images/I/61O45C5qASL.jpg', 1049.99, 1, 2),
+(8, 'Rugged Cell Phone', 'Unlocked OUKITEL WP5 Pro, 8000mAh Battery, 4GB+64GB ROM, Android 10 Rugged Smartphone, 5.5 Inch IP68 Waterproof Shockproof Phone with 4 LED Flashlights, Triple Camera, Dual SIM 4G.', 'https://m.media-amazon.com/images/I/71v+xHIALaL.jpg', 169.99, 1, 2),
+(9, 'Samsung Galaxy A51', '128GB DUOS GSM Unlocked Phone w/Quad Camera 48 MP + 12 MP + 5 MP + 5 MP (International Variant/US Compatible LTE) - Prism Crush Blue.', 'https://m.media-amazon.com/images/I/61HFJwSDQ4L.jpg', 305.00, 1, 2),
+(10, 'TCL 10 Pro', 'Unlocked Android Smartphone with 6.47 AMOLED FHD + Display, 64MP Quad Rear Camera System, 128GB+6GB RAM, 4500mAh Fast Charging Battery - Forest Mist Green.', 'https://m.media-amazon.com/images/I/71h9Xr-1eUS._AC_SL1500_.jpg', 399.99, 1, 2),
+(11, 'Acer Laptop', 'Aspire 5 A515-46-R14K Slim Laptop | 15.6 Full HD IPS | AMD Ryzen 3 3350U Quad-Core Mobile Processor | 4GB DDR4 | 128GB NVMe SSD | WiFi 6 | Backlit KB | Amazon Alexa | Windows 10 Home (S mode).', 'https://m.media-amazon.com/images/I/71AmKW4yuMS.jpg', 372.00, 1, 3),
+(12, 'HP Laptop', '15.6 Inches, 10th Gen Intel Quard-Core i7 1065G7 up to 3.9GHz, 16GB DDR4 RAM, 512GB PCIe SSD, 802.11ac WiFi, Bluetooth 4.2, Silver, Windows 10, YZAKKA USB External DVD + Accessories.', 'https://m.media-amazon.com/images/I/61MhOuAcwlL.jpg', 980.70, 1, 3),
+(13, 'Wall Clock', 'Black Clock Silent Non Ticking Quality Quartz, Battery Operated 10 Inch Round Easy to Read for Home Office School Decor Clock.', 'https://m.media-amazon.com/images/I/61VvP5UznnL.jpg', 8.89, 1, 4),
+(14, 'Casio Alarm Clock', 'Black, beeper sound alarm, 12 months battery life, one year manufacturer warranty.', 'https://m.media-amazon.com/images/I/71aKBTEriQL.jpg', 10.40, 1, 4),
+(15, 'Casio Men Clock', 'G-SHOCK Stainless Steel Quartz Watch with Resin Strap, Black, 21 (Model: AWG-M100A-1ACR), Water resistant, five daily alarms, countdown timer, full auto-calendar, 12 and 24-hour formats, solar rechargeable storage battery with power indicator.', 'https://m.media-amazon.com/images/I/817SqnYK83L.jpg', 99.56, 1, 4),
+(16, 'DSLR Camera', 'Canon EOS Rebel T7 Camera with 18-55mm Lens | Built-in Wi-Fi | 24.1 MP CMOS Sensor | DIGIC 4+ Image Processor and Full HD Videos, 24.1 Megapixel CMOS (APS-C) sensor with is 100–6400 (H: 12800).', 'https://m.media-amazon.com/images/I/71EWRyqzw0L.jpg', 160.00, 1, 5),
+(17, 'Armani Handbag', 'Black logo embossed messenger bag from Giorgio Armani featuring an adjustable shoulder strap, a top zip fastening and a front zip pocket.', 'https://s3.amazonaws.com/redqteam.com/pickbazar/Armani_Handbag.jpg', 300.00, 1,6),
+(18, 'Advent Laptop Bag', 'Material: Laptop Shoulder Bag is made of quality canvas, protecting your laptop from dust, scratches and water.', 'https://s3.amazonaws.com/redqteam.com/pickbazar/Advent_laptop_bags.jpg', 160.00, 1, 6),
+(19, 'Armani Purse', 'Black logo embossed messenger bag from Giorgio Armani featuring an adjustable shoulder strap, a top zip fastening and a front zip pocket.', 'https://s3.amazonaws.com/redqteam.com/pickbazar/Armani_purse.jpg', 72.00, 0, 6),
+(20, 'Chanel Shoulder Bag', 'Authenticity Guaranteed Chanel Classic Jumbo Single Flap Black Caviar Shoulder Bag.', 'https://s3.amazonaws.com/redqteam.com/pickbazar/chanel_shoulder_bag.jpg', 171.50, 1, 6),
+(21, 'Solid Bodycon Midi Dress', 'Grey solid woven bodycon dress, has a round neck, sleeveless, straight hem.', 'https://s3.amazonaws.com/redqteam.com/pickbazar/FOREVER_21.jpg', 110.00, 1, 7),
+(22, 'Hooded Zips Plain Long Sleeve Hoodies', 'Black bandhgala, has a mandarin collar, a full button placket, long sleeves, three pockets, double vented back hem, and has an attached lining.', 'https://s3.amazonaws.com/redqteam.com/pickbazar/Hooded_Zips.jpg', 124.00, 1, 7),
+(23, 'Brook Taverner Coat', 'Black bandhgala, has a mandarin collar, a full button placket, long sleeves, three pockets, double vented back hem, and has an attached lining.', 'https://s3.amazonaws.com/redqteam.com/pickbazar/Brook_Taverner.jpg', 144.49, 1, 7),
+(24, 'Loap Jerryk Mens Winter City Jacket Red', 'Black bandhgala, has a mandarin collar, a full button placket, long sleeves, three pockets, double vented back hem, and has an attached lining.', 'https://s3.amazonaws.com/redqteam.com/pickbazar/Loap_jerryk_mens_winter_city_jacket_red.jpg', 100.00, 1, 7),
+(25, 'Western Denim Shirt', 'Black cotton shearling denim jacket from Levi featuring long sleeves, a front button fastening, two chest pockets, side slit pockets, a shearling lining and a logo tag.', 'https://s3.amazonaws.com/redqteam.com/pickbazar/Loap_jerryk_mens_winter_city_jacket_red.jpg', 27.55, 1, 7),
+(26, 'Women Running Shoes', 'UMYOGO Women Running Shoes Non Slip Athletic Tennis Walking Blade Type Sneakers.', 'https://images-na.ssl-images-amazon.com/images/I/81ntddef-%2BL.jpg', 45.99, 1, 8),
+(27, 'Men Charged Pursuit Running Shoe', 'Lightweight, engineered mesh upper is extremely flexible & breathable, with strategic support where you need, for runners who need flexibility, cushioning and versatility.', 'https://images.unsplash.com/photo-1549298916-b41d501d3772', 48.80, 1, 8),
+(28, 'Brown Hardwood Double Bed', 'Piece of furniture which is used as a place to sleep or relax.', 'https://m.media-amazon.com/images/I/81IjU+w5yXL.jpg', 220.00, 1, 9),
+(29, 'ZINUS Shalini Upholstered Platform Bed Frame', 'Mattress Foundation, wood Slat Support with no box spring needed, easy assembly, dark grey, everything you need is efficiently packed into one box and shipped straight to your door.', 'https://adnan-catalog.herokuapp.com/uploaded-images/products/81mOKbR4L.jpg', 247.11, 1, 9),
+(30, 'DHP Studio Loft Bunk Bed', 'desk and bookcase with metal frame, bed accommodates a twin size mattress (75 inches x 39 inches) – sold separately. Maximum upper mattress thickness of 6 inches.', 'https://adnan-catalog.herokuapp.com/uploaded-images/products/81m7zm.jpg', 354.16, 0, 9),
+(31, 'Purple Bubble Lawn Mower for Toddlers', 'ArtCreativity Pink, Electronic Bubble Blower Machine | Fun Bubbles Blowing Push Toys for Kids | Bubble Solution Included | Birthday Gift for Girls.', 'https://m.media-amazon.com/images/I/71qTB8D868S.jpg', 24.97, 0, 10),
+(32, 'Play 18 Pieces of Beach Toys', 'Make fun and creative shapes and sculptures, helps promote kids cognitive and imaginative skills, Set includes bucket, 2 shovels, 3 rakes, 2 sand sifters, watering can.', 'https://adnan-catalog.herokuapp.com/uploaded-images/products/71wH1dTAuNL.jpg', 19.20, 0, 10),
+(33, 'Dinosaur Toys for 3 Year Old Boys', 'Pull Back Dinosaur Toys for 5 Year Old Boy 6 Pack Set Car Toys for 4 Year Old Boys Christmas Birthday Gifts for Kids 2 3 4 5 6 Year Old Boys Girls.', 'https://m.media-amazon.com/images/I/81Re2tZX5gL.jpg', 12.99, 1, 10)
+;
